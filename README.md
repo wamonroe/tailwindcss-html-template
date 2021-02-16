@@ -14,18 +14,18 @@ npm install
 Run the the development server:
 
 ```bash
-gulp serve
+npm run gulp
 ```
 
 Compile, minify, and/or copy files for distribution:
 
 ```bash
-gulp build
+npm run gulp build
 ```
 
 ## Deploy
 
-Run `gulp build` and then copy all the files and folders from `./dist` to the webhost.
+Run `npm run gulp build` and then copy all the files and folders from `./dist` to the webhost.
 
 ## Files
 
