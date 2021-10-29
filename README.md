@@ -14,21 +14,21 @@ npm install
 Run the the development server:
 
 ```bash
-npm run gulp
-```
-
-Compile, minify, and/or copy files for distribution:
-
-```bash
-npm run gulp build
+npm run dev
 ```
 
 ## Deploy
 
-Run `npm run gulp build` and then copy all the files and folders from `./dist` to the webhost.
+Run `npm run build` and then copy all the files and folders from `./dist` to the webhost.
 
 ## Files
 
-This very simple project expects only two files `./src/index.html` and `./src/styles.css`. Both of
-these files get compiled and/or minified during the build process. Any additional assets (such as
-images) should be placed in `./src/assets`.
+This very simple project leverages [Vite.js](https://vitejs.dev) and [PostCSS](https://postcss.org) to build and minify
+the assets. It expects only three files:
+
+* `./src/index.html`
+* `./src/assets/styles/main.css`
+* `./src/assets/js/main.js`
+
+Any additional files referenced within any of these will automatically get included. For more information about the
+build process, see the documentation for Vite.js.
