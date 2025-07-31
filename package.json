@@ -13,7 +13,7 @@
     "postcss": "^8.5.3",
     "postcss-import": "^16.1.0",
     "postcss-preset-env": "^10.1.5",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^4.1.11",
     "vite": "^6.1.0"
   }
 }
