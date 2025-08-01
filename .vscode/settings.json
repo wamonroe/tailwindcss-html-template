@@ -1,0 +1,30 @@
+{
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "always"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "editor.tabSize": 2,
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "prettier.requireConfig": true,
+  "prettier.useEditorConfig": false,
+  "yaml.schemaStore.enable": false
+}
