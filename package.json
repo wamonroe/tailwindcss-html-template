@@ -20,6 +20,6 @@
     "postcss-preset-env": "^10.6.0",
     "prettier": "^3.7.4",
     "tailwindcss": "^4.1.17",
-    "vite": "^7.3.0"
+    "vite": "^7.3.1"
   }
 }
