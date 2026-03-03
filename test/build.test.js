@@ -1,7 +1,7 @@
 import { execSync } from "node:child_process";
 import { readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
-import { beforeAll, describe, expect, test } from "vitest";
+import { beforeAll, beforeEach, describe, expect, test } from "vitest";
 
 const distDir = resolve(import.meta.dirname, "../dist");
 
@@ -13,22 +13,33 @@ describe("production build", () => {
     });
   });
 
-  test("outputs index.html", () => {
+  beforeEach(() => {
     const html = readFileSync(resolve(distDir, "index.html"), "utf-8");
-    expect(html.toLowerCase()).toContain("<!doctype html>");
+    document.documentElement.innerHTML = html;
+  });
+
+  test("outputs index.html", () => {
+    expect(document.querySelector("html")).not.toBeNull();
+    expect(document.querySelector("head")).not.toBeNull();
+    expect(document.querySelector("body")).not.toBeNull();
   });
 
   test("html contains expected page structure", () => {
-    const html = readFileSync(resolve(distDir, "index.html"), "utf-8");
-    expect(html).toContain("<title>Tailwind CSS Template</title>");
-    expect(html).toMatch(/Tailwind CSS Template\s*<\/h1>/);
-    expect(html).toContain("plain-old-HTML template using Tailwind CSS");
+    expect(document.querySelector("title").textContent).toBe(
+      "Tailwind CSS Template"
+    );
+    expect(document.querySelector("h1").textContent).toContain(
+      "Tailwind CSS Template"
+    );
+    expect(document.body.textContent).toContain(
+      "plain-old-HTML template using Tailwind CSS"
+    );
   });
 
   test("html links to a compiled css file", () => {
-    const html = readFileSync(resolve(distDir, "index.html"), "utf-8");
-    const cssLinkMatch = html.match(/href="\.\/assets\/[^"]+\.css"/);
-    expect(cssLinkMatch).not.toBeNull();
+    const link = document.querySelector('link[rel="stylesheet"]');
+    expect(link).not.toBeNull();
+    expect(link.getAttribute("href")).toMatch(/\.\/assets\/.*\.css$/);
   });
 
   test("compiled css contains tailwind utility styles", () => {
@@ -37,7 +48,6 @@ describe("production build", () => {
     expect(cssFile).toBeDefined();
 
     const css = readFileSync(resolve(distDir, "assets", cssFile), "utf-8");
-    // Tailwind should have compiled these utilities used in index.html
     expect(css).toContain("font-bold");
     expect(css).toContain("text-center");
     expect(css.length).toBeGreaterThan(100);

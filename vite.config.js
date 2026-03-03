@@ -6,6 +6,15 @@ export default {
     emptyOutDir: true
   },
   test: {
-    root: "."
+    root: ".",
+    environment: "happy-dom",
+    environmentOptions: {
+      happyDOM: {
+        settings: {
+          disableCSSFileLoading: true,
+          handleDisabledFileLoadingAsSuccess: true
+        }
+      }
+    }
   }
 };
