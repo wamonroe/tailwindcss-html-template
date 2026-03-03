@@ -6,6 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
+    "test": "vitest run",
     "lint": "eslint .",
     "check-updates": "npx npm-check-updates",
     "do-updates": "npx npm-check-updates -u"
@@ -13,13 +14,15 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@tailwindcss/postcss": "^4.2.1",
-    "eslint": "^10.0.1",
+    "eslint": "^10.0.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
-    "postcss": "^8.5.6",
+    "globals": "^17.4.0",
+    "postcss": "^8.5.8",
     "postcss-preset-env": "^11.2.0",
     "prettier": "^3.8.1",
-    "tailwindcss": "^4.1.17",
-    "vite": "^7.3.1"
+    "tailwindcss": "^4.2.1",
+    "vite": "^7.3.1",
+    "vitest": "^4.0.18"
   }
 }
