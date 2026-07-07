@@ -1,20 +1,9 @@
-export default {
-  root: "src",
-  base: "",
-  build: {
-    outDir: "../dist",
-    emptyOutDir: true
-  },
+import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  plugins: [tailwindcss()],
   test: {
-    root: ".",
-    environment: "happy-dom",
-    environmentOptions: {
-      happyDOM: {
-        settings: {
-          disableCSSFileLoading: true,
-          handleDisabledFileLoadingAsSuccess: true
-        }
-      }
-    }
+    environment: "happy-dom"
   }
-};
+});
