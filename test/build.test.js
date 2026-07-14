@@ -25,21 +25,15 @@ describe("production build", () => {
   });
 
   test("html contains expected page structure", () => {
-    expect(document.querySelector("title").textContent).toBe(
-      "Tailwind CSS Template"
-    );
-    expect(document.querySelector("h1").textContent).toContain(
-      "Tailwind CSS Template"
-    );
-    expect(document.body.textContent).toContain(
-      "plain-old-HTML template using Tailwind CSS"
-    );
+    expect(document.querySelector("title").textContent).toBe("Tailwind CSS Template");
+    expect(document.querySelector("h1").textContent).toContain("Tailwind CSS Template");
+    expect(document.body.textContent).toContain("plain-old-HTML template using Tailwind CSS");
   });
 
   test("html links to a compiled css file", () => {
     const link = document.querySelector('link[rel="stylesheet"]');
     expect(link).not.toBeNull();
-    expect(link.getAttribute("href")).toMatch(/\.\/assets\/.*\.css$/);
+    expect(link.getAttribute("href")).toMatch(/\/assets\/.*\.css$/);
   });
 
   test("compiled css contains tailwind utility styles", () => {
