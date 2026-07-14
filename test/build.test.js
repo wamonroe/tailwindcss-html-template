@@ -33,7 +33,7 @@ describe("production build", () => {
   test("html links to a compiled css file", () => {
     const link = document.querySelector('link[rel="stylesheet"]');
     expect(link).not.toBeNull();
-    expect(link.getAttribute("href")).toMatch(/\.\/assets\/.*\.css$/);
+    expect(link.getAttribute("href")).toMatch(/\/assets\/.*\.css$/);
   });
 
   test("compiled css contains tailwind utility styles", () => {
